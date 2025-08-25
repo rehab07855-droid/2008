@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مدرسة الهدية — موقع فخم</title>
+  <style>
+    :root{
+      --bg:#f6fbf8; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --brand:#10b981; --brand-2:#059669; --ring:#a7f3d0;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;color:var(--ink);background:linear-gradient(#ecfdf5, var(--bg));font-family:"Tajawal","Segoe UI",system-ui,-apple-system,sans-serif}
+    a{color:inherit;text-decoration:none}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e5e7eb}
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+    .row{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border:1px solid #e5e7eb;border-radius:14px;background:#fff;display:grid;place-items:center;overflow:hidden}
+    .logo img{width:100%;height:100%;object-fit:cover}
+    h1{font-size:22px;margin:0 0 4px}
+    .muted{color:var(--muted);font-size:14px}
+    .badge{border:1px solid #e5e7eb;border-radius:999px;padding:6px 12px;font-size:12px;background:#fff}
+    .btn{appearance:none;border:none;border-radius:12px;background:var(--brand);color:#fff;padding:10px 14px;font-weight:600;cursor:pointer;box-shadow:var(--shadow)}
+    .btn.secondary{background:#fff;color:var(--ink);border:1px solid #e5e7eb}
+    .btn.icon{padding:10px}
+
+    /* hero */
+    .grid{display:grid;gap:16px}
+    @media(min-width:900px){.grid.hero{grid-template-columns:2fr 1fr}}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card .head{padding:16px 18px;border-bottom:1px solid #f0f2f4;font-weight:700}
+    .card .body{padding:18px}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:#eefcf6;border:1px solid #d1fae5;border-radius:12px;padding:6px 10px;font-size:12px}
+
+    /* tabs */
+    .tabs{margin-top:8px}
+    .tablist{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .tablist button{padding:12px;border-radius:12px;border:1px solid #d1d5db;background:#fff;font-weight:600}
+    .tablist button.active{background:var(--brand);color:#fff;border-color:transparent}
+    .tab{display:none;margin-top:16px}
+    .tab.active{display:block}
+
+    /* table */
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    thead th{background:#ecfdf5;text-align:right}
+    th,td{padding:12px;border-bottom:1px solid #eef2f7}
+    tr:hover{background:#fafafa}
+
+    .gridCards{display:grid;gap:14px}
+    @media(min-width:700px){.gridCards{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1000px){.gridCards{grid-template-columns:repeat(3,1fr)}}
+
+    .teacher{border-radius:14px;border:1px solid #eef2f7;background:#fff;padding:14px}
+    .teacher .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+    .dept{background:#f3f4f6;border:1px solid #e5e7eb;border-radius:999px;padding:4px 10px;font-size:12px}
+
+    .inputs{display:grid;gap:10px}
+    @media(min-width:700px){.inputs{grid-template-columns:2fr 1fr}}
+    input,select,textarea{width:100%;padding:10px 12px;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
+
+    /* gallery */
+    .gallery{display:grid;gap:12px}
+    @media(min-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1000px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:14px;border:1px solid #eef2f7}
+
+    /* contact */
+    footer{border-top:1px solid #e5e7eb;background:#fff;margin-top:24px}
+    .foot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
+
+    /* print */
+    @media print{
+      header,.tablist,.heroOnly{display:none!important}
+      .card, .teacher, .badge, .dept{box-shadow:none!important}
+      body{background:#fff}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container row">
+      <div class="logo" id="logoBox" title="يمكن إضافة شعار المدرسة هنا">
+        <!-- يفضّل استخدام شعار المدرسة بإذن رسمي. استخدام شعار وزارة التربية والتعليم قد يتطلب موافقة. -->
+        <span style="font-weight:700;color:var(--brand)">🎓</span>
+      </div>
+      <div style="flex:1">
+        <h1 id="schoolName">مدرسة الهدية النموذجية</h1>
+        <div class="muted" id="motto">نغرس القيم… ونصنع الأمل</div>
+      </div>
+      <span class="badge" id="donor">مقدمة من: رحاب</span>
+      <button class="btn icon" title="طباعة" onclick="window.print()">🖨️</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="grid hero">
+      <div class="card">
+        <div class="head">نبذة عن المدرسة</div>
+        <div class="body">
+          <p>هذا الموقع هدية محبة لمدرستنا. يجمع السجلات، أسماء المعلمات، الأخبار، الصور، والتواصل في مكان واحد وبمظهر أنيق.</p>
+          <div class="chips" style="margin-top:10px">
+            <span class="chip">سجلات</span>
+            <span class="chip">دليل المعلمات</span>
+            <span class="chip">أخبار وإعلانات</span>
+            <span class="chip">معرض صور</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card heroOnly">
+        <div class="head">تخصيص سريع</div>
+        <div class="body">
+          <div class="inputs" style="grid-template-columns:1fr">
+            <label>اسم المدرسة<input id="inpSchool" placeholder="اسم المدرسة"/></label>
+            <label>الشعار/العبارة<input id="inpMotto" placeholder="الشعار"/></label>
+            <label>سطر الإهداء<input id="inpDonor" placeholder="مثال: مقدمة من: رحاب"/></label>
+            <label>رابط شعار المدرسة (اختياري)
+              <input id="inpLogo" placeholder="https://example.com/logo.png"/>
+            </label>
+            <button class="btn" id="apply">تطبيق التعديلات</button>
+            <p class="muted" style="line-height:1.8">تنبيه: استخدام شعار وزارة التربية والتعليم الرسمي قد يتطلب إذنًا رسميًا. يُفضّل شعار المدرسة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS -->
+    <section class="tabs">
+      <div class="tablist">
+        <button class="active" data-tab="t1">المعلمات</button>
+        <button data-tab="t2">السجلات</button>
+        <button data-tab="t3">الأخبار</button>
+        <button data-tab="t4">المعرض</button>
+      </div>
+
+      <!-- المعلمات -->
+      <div id="t1" class="tab active">
+        <div class="card">
+          <div class="head">دليل المعلمات</div>
+          <div class="body">
+            <div class="inputs">
+              <div style="position:relative">
+                <input id="q" placeholder="ابحثي بالاسم أو المادة أو القسم" />
+              </div>
+              <select id="dept">
+                <option value="">تصفية حسب القسم (الكل)</option>
+              </select>
+            </div>
+            <div class="gridCards" id="teachers" style="margin-top:12px"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- السجلات -->
+      <div id="t2" class="tab">
+        <div class="card">
+          <div class="head">السجلات الرسمية</div>
+          <div class="body">
+            <div style="overflow:auto">
+              <table id="recordsTable">
+                <thead>
+                  <tr><th>#</th><th>النوع</th><th>الجهة/الصف</th><th>التاريخ</th><th>ملاحظات</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <div class="inputs" style="grid-template-columns:repeat(5,1fr);margin-top:12px">
+              <input id="rType" placeholder="النوع" />
+              <input id="rOwner" placeholder="الجهة/الصف" />
+              <input id="rDate" type="date" />
+              <input id="rNote" placeholder="ملاحظة" />
+              <button class="btn" id="addRecord">إضافة سجل</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- الأخبار -->
+      <div id="t3" class="tab">
+        <div class="grid">
+          <div id="newsWrap" class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px"></div>
+          <div class="card">
+            <div class="head">إضافة خبر جديد</div>
+            <div class="body inputs" style="grid-template-columns:repeat(4,1fr)">
+              <input id="nTitle" placeholder="العنوان" />
+              <input id="nDate" type="date" />
+              <textarea id="nBody" placeholder="نص الخبر" style="grid-column:span 2"></textarea>
+              <button class="btn" id="addNews" style="grid-column:span 4">نشر الخبر</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- المعرض -->
+      <div id="t4" class="tab">
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <!-- تواصل -->
+    <section class="card" style="margin-top:18px">
+      <div class="head">تواصل معنا</div>
+      <div class="body">
+        <div class="inputs" style="grid-template-columns:repeat(2,1fr)">
+          <input placeholder="الاسم" />
+          <input placeholder="البريد" />
+          <textarea placeholder="الرسالة" style="grid-column:span 2"></textarea>
+          <button class="btn" style="grid-column:span 2">إرسال</button>
+        </div>
+        <p class="muted" style="margin-top:8px">الهاتف: 064-000-000 — البريد: info@school.edu — العنوان: عمّان، الأردن</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <p>© <span id="year"></span> — <span id="schoolNameFoot">مدرسة الهدية النموذجية</span>. جميع الحقوق محفوظة.</p>
+      <p id="donorFoot">مقدمة من: رحاب</p>
+    </div>
+  </footer>
+
+  <script>
+    // ——— بيانات مبدئية قابلة للتعديل ———
+    const state = {
+      schoolName: 'مدرسة الهدية النموذجية',
+      motto: 'نغرس القيم… ونصنع الأمل',
+      donor: 'مقدمة من: رحاب',
+      logoUrl: '',
+      teachers: [
+        { id: 1, name: 'ميس نور', subject: 'لغة عربية', phone: '0790-000-001', email: 'noor@school.edu', dept: 'اللغة العربية' },
+        { id: 2, name: 'ميس هبة', subject: 'لغة إنجليزية', phone: '0790-000-002', email: 'hiba@school.edu', dept: 'اللغة الإنجليزية' },
+        { id: 3, name: 'ميس بتول', subject: 'تربية إسلامية', phone: '0790-000-003', email: 'batool@school.edu', dept: 'التربية الإسلامية' },
+        { id: 4, name: 'ميس شهد', subject: 'تاريخ الأردن', phone: '0790-000-004', email: 'shahd@school.edu', dept: 'الدراسات الاجتماعية' },
+        { id: 5, name: 'ميس ملاك', subject: 'علوم', phone: '0790-000-005', email: 'malak@school.edu', dept: 'العلوم' },
+        { id: 6, name: 'ميس كريمة', subject: 'رياضيات', phone: '0790-000-006', email: 'karima@school.edu', dept: 'الرياضيات' },
+      ],
+      records: [
+        { id: 101, type: 'سجل حضور', owner: 'الصف 10/أ', date: '2025-08-20', note: 'اكتمل' },
+        { id: 102, type: 'سجل علامات', owner: 'الصف 11/ب', date: '2025-08-18', note: 'قيد المراجعة' },
+        { id: 103, type: 'خطة شهرية', owner: 'الرياضيات', date: '2025-08-15', note: 'منشورة' },
+      ],
+      news: [
+        { id: 1, title: 'بدء العام الدراسي الجديد', date: '2025-09-01', body: 'نرحّب بطلابنا الأعزاء ونتمنى عامًا مليئًا بالنجاح.' },
+        { id: 2, title: 'تكريم أوائل المدرسة', date: '2025-08-10', body: 'حفل بسيط لتكريم المتفوّقين.' },
+      ],
+      gallery: [
+        { id: 1, src: 'https://images.unsplash.com/photo-1517520287167-4bbf64a00d66?q=80&w=1200&auto=format&fit=crop', alt: 'صف دراسي' },
+        { id: 2, src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop', alt: 'مكتبة' },
+        { id: 3, src: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=1200&auto=format&fit=crop', alt: 'مختبر علوم' },
+      ]
+    };
+
+    // ——— أدوات بسيطة ———
+    const $ = sel => document.querySelector(sel);
+    const el = (tag, props={}) => Object.assign(document.createElement(tag), props);
+
+    // تبويب
+    document.querySelectorAll('.tablist button').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        document.querySelectorAll('.tablist button').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      })
+    })
+
+    // تعبئة رأس الصفحة
+    function renderHeader(){
+      $('#schoolName').textContent = state.schoolName;
+      $('#schoolNameFoot').textContent = state.schoolName;
+      $('#motto').textContent = state.motto;
+      $('#donor').textContent = state.donor;
+      $('#donorFoot').textContent = state.donor;
+      if(state.logoUrl){
+        const img = el('img',{src:state.logoUrl, alt:'شعار المدرسة'});
+        const box = $('#logoBox');
+        box.innerHTML=''; box.appendChild(img);
+      }
+      $('#year').textContent = new Date().getFullYear();
+    }
+
+    // المعلمات + التصفية
+    function renderTeachers(){
+      const wrap = $('#teachers');
+      wrap.innerHTML = '';
+      const q = $('#q').value.trim();
+      const dept = $('#dept').value;
+      const list = state.teachers.filter(t=>{
+        const m = !dept || t.dept===dept;
+        const k = !q || [t.name,t.subject,t.dept].some(x=>x.includes(q));
+        return m && k;
+      });
+      list.forEach(t=>{
+        const card = el('div',{className:'teacher'});
+        const top = el('div',{className:'top'});
+        top.append(el('div',{innerHTML:`<strong>${t.name}</strong>`}));
+        const bad = el('span',{className:'dept',textContent:t.dept});
+        top.append(bad);
+        card.append(top);
+        card.append(el('div',{className:'muted',textContent:`المادة: ${t.subject}`}));
+        card.append(el('div',{className:'muted',textContent:`الهاتف: ${t.phone}`}));
+        card.append(el('div',{className:'muted',textContent:`البريد: ${t.email}`}));
+        wrap.append(card);
+      })
+    }
+
+    function populateDept(){
+      const unique = [...new Set(state.teachers.map(t=>t.dept))];
+      const sel = $('#dept');
+      unique.forEach(d=>{
+        const opt = el('option',{value:d, textContent:d});
+        sel.append(opt);
+      })
+    }
+
+    // السجلات
+    function renderRecords(){
+      const tbody = $('#recordsTable tbody');
+      tbody.innerHTML = '';
+      state.records.forEach(r=>{
+        const tr = el('tr');
+        tr.innerHTML = `<td>${r.id}</td><td>${r.type}</td><td>${r.owner}</td><td>${r.date}</td><td>${r.note}</td>`;
+        tbody.append(tr);
+      })
+    }
+
+    // الأخبار
+    function renderNews(){
+      const box = $('#newsWrap');
+      box.innerHTML='';
+      state.news.forEach(n=>{
+        const card = el('div',{className:'card'});
+        card.append(el('div',{className:'head',innerHTML:`${n.title} <span class="badge" style="float:left">${n.date}</span>`}));
+        const body = el('div',{className:'body'});
+        body.append(el('p',{textContent:n.body}));
+        card.append(body);
+        box.append(card);
+      })
+    }
+
+    // المعرض
+    function renderGallery(){
+      const box = $('#gallery');
+      box.innerHTML='';
+      state.gallery.forEach(g=>{
+        const img = el('img',{src:g.src, alt:g.alt});
+        box.append(img);
+      })
+    }
+
+    // تطبيق التخصيص
+    $('#apply').addEventListener('click',()=>{
+      const s = $('#inpSchool').value.trim();
+      const m = $('#inpMotto').value.trim();
+      const d = $('#inpDonor').value.trim();
+      const l = $('#inpLogo').value.trim();
+      if(s) state.schoolName = s;
+      if(m) state.motto = m;
+      if(d) state.donor = d;
+      if(l) state.logoUrl = l;
+      renderHeader();
+    });
+
+    // بحث/تصفية المعلمات
+    $('#q').addEventListener('input', renderTeachers);
+    $('#dept').addEventListener('change', renderTeachers);
+
+    // إضافة سجل
+    $('#addRecord').addEventListener('click',()=>{
+      const type = $('#rType').value.trim() || '—';
+      const owner = $('#rOwner').value.trim() || '—';
+      const date = $('#rDate').value || new Date().toISOString().slice(0,10);
+      const note = $('#rNote').value.trim() || '—';
+      const nextId = (Math.max(...state.records.map(r=>r.id))||100)+1;
+      state.records.unshift({id:nextId,type,owner,date,note});
+      renderRecords();
+      ['#rType','#rOwner','#rDate','#rNote'].forEach(s=>$(s).value='');
+    });
+
+    // إضافة خبر
+    $('#addNews').addEventListener('click',()=>{
+      const title = $('#nTitle').value.trim() || '—';
+      const date = $('#nDate').value || new Date().toISOString().slice(0,10);
+      const body = $('#nBody').value.trim() || '—';
+      const id = (Math.max(...state.news.map(n=>n.id))||0)+1;
+      state.news.unshift({id,title,date,body});
+      renderNews();
+      ['#nTitle','#nDate','#nBody'].forEach(s=>$(s).value='');
+    });
+
+    // تهيئة أولية
+    populateDept();
+    renderHeader();
+    renderTeachers();
+    renderRecords();
+    renderNews();
+    renderGallery();
+  </script>
+</body>
+</html>
